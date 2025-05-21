@@ -42,6 +42,7 @@ gcc menu.c inventaris.c -o menu
 ```bash
 menu.exe
 ```
+---
 
 ## Program Berjalan
 ```
