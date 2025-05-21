@@ -25,9 +25,9 @@ void tampilkanBarang(){
         return;
     }
     printf("\nDaftar Barang:\n");
-    printf("ID\tNama\t\tJumlah\tHarga\n");
+    printf("ID\tNama\t\tJumlah\t\tHarga\n");
     for(int i = 0; i < jumlah_barang; i++){
-        printf("%d\t%s\t\t%d\t%.2f\n", inventaris[i].id, inventaris[i].nama, inventaris[i].jumlah, inventaris[i].harga);
+        printf("%-2d\t%-15s %-15d %-15.2f\n", inventaris[i].id, inventaris[i].nama, inventaris[i].jumlah, inventaris[i].harga);
     }
 }
 
