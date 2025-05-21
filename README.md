@@ -28,14 +28,17 @@ Program ini dirancang untuk membantu pengguna dalam mengelola inventaris toko de
 
 ## Cara Menjalankan Program
 
-### Compile
+### Clone
+```bash
+git clone https://github.com/ZulfahmiFajri/FinalProject-InventarisToko.git
+```
 
+### Compile
 ```bash
 gcc menu.c inventaris.c -o menu
 ```
 
 ### Run
-
 ```bash
 menu.exe
 ```
