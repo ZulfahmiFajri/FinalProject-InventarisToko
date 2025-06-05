@@ -1,9 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "inventaris.h"
 
-struct Barang inventaris[MAX];
+struct Barang *inventaris = NULL;
 int jumlah_barang = 0;
+int kapasitas_inventaris = 0;
+
 
 int inputValidInt(const char *prompt, int min, int max) {
     char buffer[100]; 
