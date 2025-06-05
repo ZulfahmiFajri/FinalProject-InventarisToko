@@ -9,7 +9,8 @@ void menu(){
         printf("1. Tambah Barang\n");
         printf("2. Tampilkan Daftar Barang\n");
         printf("3. Hapus Barang\n");
-        printf("4. Keluar\n");
+        printf("4. Urutkan Barang\n");
+        printf("5. Keluar\n");
         printf("Pilih menu: ");
         scanf("%d", &pilihan);
         switch(pilihan){
@@ -23,12 +24,16 @@ void menu(){
                 hapusBarang();
                 break;
             case 4:
+                urutkanBarang();
+                break;
+            case 5:
                 printf("Terima kasih!\n");
                 break;
+            
             default:
                 printf("Pilihan tidak valid!\n");
         }
-    }while (pilihan != 4);
+    }while (pilihan != 5);
 }
 
 int main(){
