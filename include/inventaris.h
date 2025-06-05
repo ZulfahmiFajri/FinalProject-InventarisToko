@@ -9,18 +9,22 @@ typedef enum {
     PERALATAN_RUMAH_TANGGA,
     LAINNYA
 } Kategori;
-struct Barang {
-    int id;
-    char nama[50];
-    int jumlah;
-    float harga;
-};
+
 
 typedef union {
     float diskon_persen;
     char bonus_item[50];
 } InfoPromo;
 
+struct Barang {
+    int id;
+    char nama[50];
+    int jumlah;
+    float harga;
+    Kategori kategori; 
+    InfoPromo promo;
+    int tipe_promo; 
+};
 
 extern struct Barang inventaris[MAX];
 extern int jumlah_barang;
