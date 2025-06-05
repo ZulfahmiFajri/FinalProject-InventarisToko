@@ -77,18 +77,50 @@ const char* getNamaKategori(Kategori k) {
         default: return "Tidak Diketahui";
     }
 }
-void tambahBarang(){
-    if(jumlah_barang < MAX){
-        inventaris[jumlah_barang].id = jumlah_barang + 1;
-        printf("Masukkan Nama Barang: ");
-        scanf(" %[^\n]", inventaris[jumlah_barang].nama);
-        printf("Masukkan Jumlah: ");
-        scanf("%d", &inventaris[jumlah_barang].jumlah);
-        printf("Masukkan Harga: ");
-        scanf("%f", &inventaris[jumlah_barang].harga);
-        jumlah_barang++;
-        printf("Barang berhasil ditambahkan dengan ID %d!\n", inventaris[jumlah_barang - 1].id);
-    }else printf("Inventaris penuh!\n");
+
+void tambahBarang() {
+    if (jumlah_barang == kapasitas_inventaris) {
+        
+        int kapasitas_baru = (kapasitas_inventaris == 0) ? 10 : kapasitas_inventaris * 2;
+        struct Barang *inventaris_baru = realloc(inventaris, kapasitas_baru * sizeof(struct Barang));
+
+        if (inventaris_baru == NULL) {
+            printf("Gagal mengalokasikan memori! Program akan berhenti.\n");
+            bebasMemori();
+            exit(1);
+        }
+        inventaris = inventaris_baru;
+        kapasitas_inventaris = kapasitas_baru;
+        printf("Kapasitas inventaris ditingkatkan menjadi %d\n", kapasitas_inventaris);
+    }
+
+    int idx = jumlah_barang;
+    printf("Masukkan Nama Barang: ");
+    fgets(inventaris[idx].nama, sizeof(inventaris[idx].nama), stdin);
+    inventaris[idx].nama[strcspn(inventaris[idx].nama, "\n")] = 0;
+
+    inventaris[idx].jumlah = inputValidInt("Masukkan Jumlah: ", 1, 1000000);
+    inventaris[idx].harga = inputValidFloat("Masukkan Harga: ", 0.01f, 1000000000.0f);
+    
+    printf("Pilih Kategori:\n");
+    for(int i = 0; i <= LAINNYA; i++) {
+        printf("%d. %s\n", i, getNamaKategori(i));
+    }
+    inventaris[idx].kategori = (Kategori)inputValidInt("Pilihan Kategori: ", 0, LAINNYA);
+
+    printf("Ada promo untuk barang ini? (1 = Diskon Persen, 2 = Bonus Item, 0 = Tidak Ada): ");
+    inventaris[idx].tipe_promo = inputValidInt("", 0, 2);
+    if(inventaris[idx].tipe_promo == 1) {
+        inventaris[idx].promo.diskon_persen = inputValidFloat("Masukkan Diskon (%): ", 0.1f, 100.0f);
+    } else if (inventaris[idx].tipe_promo == 2) {
+        printf("Masukkan Nama Bonus Item: ");
+        fgets(inventaris[idx].promo.bonus_item, sizeof(inventaris[idx].promo.bonus_item), stdin);
+        inventaris[idx].promo.bonus_item[strcspn(inventaris[idx].promo.bonus_item, "\n")] = 0;
+    }
+
+    inventaris[idx].id = jumlah_barang + 1;
+    jumlah_barang++;
+    printf("Barang berhasil ditambahkan!\n");
 }
 
 void tampilkanBarang(){
