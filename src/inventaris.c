@@ -5,6 +5,36 @@
 struct Barang inventaris[MAX];
 int jumlah_barang = 0;
 
+float inputValidFloat(const char *prompt, float min, float max) {
+    char buffer[100];
+    float val;
+    int status;
+
+    while (1) {
+        printf("%s", prompt);
+
+        if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+            printf("End of input. Exiting.\n");
+            exit(1);
+        }
+        
+        status = sscanf(buffer, "%f", &val);
+
+        if (status != 1) {
+            printf("Input tidak valid! Harus berupa angka desimal.\n");
+            continue;
+        }
+
+        if (val < min || val > max) {
+            printf("Input harus antara %.2f dan %.2f.\n", min, max);
+            continue;
+        }
+
+        break;
+    }
+    return val;
+}
+
 void tambahBarang(){
     if(jumlah_barang < MAX){
         inventaris[jumlah_barang].id = jumlah_barang + 1;
