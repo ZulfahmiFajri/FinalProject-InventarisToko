@@ -203,5 +203,11 @@ void hapusBarang(){
         jumlah_barang--;
         updateID();
         printf("Barang berhasil dihapus.\n");
-    }else printf("Barang dengan ID tersebut tidak ditemukan.\n");
+    } else printf ("Barang dengan ID tersebut tidak ditemukan.\n");
+}
+
+void bebasMemori() {
+    printf("Membersihkan memori...\n");
+    free(inventaris);
+    inventaris = NULL;
 }

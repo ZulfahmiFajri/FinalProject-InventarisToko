@@ -38,5 +38,6 @@ void menu(){
 
 int main(){
     menu();
+    bebasMemori();
     return 0;
 }

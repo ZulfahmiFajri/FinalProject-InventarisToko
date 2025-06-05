@@ -40,4 +40,6 @@ void hapusBarang();
 void urutkanBarang();
 void updateID();
 
+void bebasMemori();
+
 #endif
