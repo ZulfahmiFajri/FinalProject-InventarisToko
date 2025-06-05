@@ -32,6 +32,7 @@ extern int jumlah_barang;
 void tambahBarang();
 void tampilkanBarang();
 void hapusBarang();
+void urutkanBarang();
 void updateID();
 
 #endif
