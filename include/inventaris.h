@@ -25,8 +25,9 @@ struct Barang {
     int tipe_promo; 
 };
 
-extern struct Barang inventaris[MAX];
+extern struct Barang *inventaris;
 extern int jumlah_barang;
+
 
 int inputValidInt(const char *prompt, int min, int max);
 float inputValidFloat(const char *prompt, float min, float max);
