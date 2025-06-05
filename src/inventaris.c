@@ -150,7 +150,7 @@ void tampilkanBarang() {
                inventaris[i].harga,
                string_promo);
     }
-
+}
 
 void urutkanBarang() {
     if (jumlah_barang < 2) {
