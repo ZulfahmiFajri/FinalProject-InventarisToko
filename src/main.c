@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "inventaris.h"
-#include "menu.h"
+#include "main.h"
 
 void menu(){
     int pilihan;
