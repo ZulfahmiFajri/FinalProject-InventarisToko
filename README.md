@@ -9,7 +9,7 @@
 | Nama                  | NPM        |
 |-----------------------|------------|
 | M. Hashif Jade        | 2406396786 |
-| Marshal Aufa Diliyana | 2404346913 |
+| Marshal Aufa Diliyana | 2406346913 |
 | M. Zaki Al Khairi     | 2406432375 |
 | Zulfahmi Fajri        | 2406345425 |
 
