@@ -2,7 +2,13 @@
 #define INVENTARIS_H
 
 #define MAX 100
-
+typedef enum {
+    ELEKTRONIK,
+    MAKANAN_MINUMAN,
+    PAKAIAN,
+    PERALATAN_RUMAH_TANGGA,
+    LAINNYA
+} Kategori;
 struct Barang {
     int id;
     char nama[50];

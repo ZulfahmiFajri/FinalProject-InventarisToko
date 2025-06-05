@@ -67,7 +67,16 @@ float inputValidFloat(const char *prompt, float min, float max) {
     }
     return val;
 }
-
+const char* getNamaKategori(Kategori k) {
+    switch (k) {
+        case ELEKTRONIK: return "Elektronik";
+        case MAKANAN_MINUMAN: return "Makanan/Minuman";
+        case PAKAIAN: return "Pakaian";
+        case PERALATAN_RUMAH_TANGGA: return "Peralatan RT";
+        case LAINNYA: return "Lainnya";
+        default: return "Tidak Diketahui";
+    }
+}
 void tambahBarang(){
     if(jumlah_barang < MAX){
         inventaris[jumlah_barang].id = jumlah_barang + 1;
