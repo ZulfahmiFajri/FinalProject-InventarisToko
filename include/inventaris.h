@@ -38,7 +38,6 @@ void tambahBarang();
 void tampilkanBarang();
 void hapusBarang();
 void urutkanBarang();
-void updateID();
 
 void bebasMemori();
 
