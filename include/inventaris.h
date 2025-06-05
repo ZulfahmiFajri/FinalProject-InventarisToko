@@ -27,6 +27,7 @@ struct Barang {
 
 extern struct Barang *inventaris;
 extern int jumlah_barang;
+extern int kapasitas_inventaris;
 
 
 int inputValidInt(const char *prompt, int min, int max);
