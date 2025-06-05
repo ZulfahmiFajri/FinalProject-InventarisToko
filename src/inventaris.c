@@ -99,6 +99,8 @@ void tambahBarang() {
 
     int idx = jumlah_barang;
     printf("Masukkan Nama Barang: ");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);  // flush buffer
     fgets(inventaris[idx].nama, sizeof(inventaris[idx].nama), stdin);
     inventaris[idx].nama[strcspn(inventaris[idx].nama, "\n")] = 0;
 
@@ -204,7 +206,9 @@ void hapusBarang(){
             inventaris[i] = inventaris[i + 1];
         }
         jumlah_barang--;
-        updateID();
+        for(int i=0; i < jumlah_barang; i++){ 
+            inventaris[i].id = i + 1; 
+        } 
         printf("Barang berhasil dihapus.\n");
     } else printf ("Barang dengan ID tersebut tidak ditemukan.\n");
 }
