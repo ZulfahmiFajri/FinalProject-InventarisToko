@@ -28,6 +28,10 @@ struct Barang {
 extern struct Barang inventaris[MAX];
 extern int jumlah_barang;
 
+int inputValidInt(const char *prompt, int min, int max);
+float inputValidFloat(const char *prompt, float min, float max);
+const char* getNamaKategori(Kategori k);
+
 void tambahBarang();
 void tampilkanBarang();
 void hapusBarang();
