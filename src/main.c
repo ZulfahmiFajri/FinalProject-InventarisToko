@@ -2,7 +2,7 @@
 #include "inventaris.h"
 #include "main.h"
 
-void menu(){
+void menu() {
     int pilihan;
     do {
         printf("\n===== SISTEM INVENTARIS TOKO =====\n");
@@ -11,29 +11,16 @@ void menu(){
         printf("3. Hapus Barang\n");
         printf("4. Urutkan Barang\n");
         printf("5. Keluar\n");
-        printf("Pilih menu: ");
-        scanf("%d", &pilihan);
-        switch(pilihan){
-            case 1:
-                tambahBarang();
-                break;
-            case 2:
-                tampilkanBarang();
-                break;
-            case 3:
-                hapusBarang();
-                break;
-            case 4:
-                urutkanBarang();
-                break;
-            case 5:
-                printf("Terima kasih!\n");
-                break;
-            
-            default:
-                printf("Pilihan tidak valid!\n");
+        pilihan = inputValidInt("Pilih menu: ", 1, 5);
+
+        switch (pilihan) {
+            case 1: tambahBarang(); break;
+            case 2: tampilkanBarang(); break;
+            case 3: hapusBarang(); break;
+            case 4: urutkanBarang(); break;
+            case 5: printf("Terima kasih!\n"); break;
         }
-    }while (pilihan != 5);
+    } while (pilihan != 5);
 }
 
 int main(){

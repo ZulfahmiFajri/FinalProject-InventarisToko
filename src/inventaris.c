@@ -99,8 +99,6 @@ void tambahBarang() {
 
     int idx = jumlah_barang;
     printf("Masukkan Nama Barang: ");
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);  // flush buffer
     fgets(inventaris[idx].nama, sizeof(inventaris[idx].nama), stdin);
     inventaris[idx].nama[strcspn(inventaris[idx].nama, "\n")] = 0;
 
