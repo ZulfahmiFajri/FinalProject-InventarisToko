@@ -103,10 +103,18 @@ void tampilkanBarang(){
     }
 }
 
-void updateID(){
-    for(int i = 0; i < jumlah_barang; i++){
-        inventaris[i].id = i + 1;
-    }
+int compareByName(const void *a, const void *b) {
+    struct Barang *barangA = (struct Barang *)a;
+    struct Barang *barangB = (struct Barang *)b;
+    return strcmp(barangA->nama, barangB->nama);
+}
+
+int compareByPrice(const void *a, const void *b) {
+    struct Barang *barangA = (struct Barang *)a;
+    struct Barang *barangB = (struct Barang *)b;
+    if (barangA->harga < barangB->harga) return -1;
+    if (barangA->harga > barangB->harga) return 1;
+    return 0;
 }
 
 void hapusBarang(){
