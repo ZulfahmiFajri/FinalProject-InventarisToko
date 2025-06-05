@@ -150,7 +150,34 @@ void urutkanBarang() {
     }
 
     printf("Inventaris berhasil diurutkan.\n");
-    tampilkanBarang();
+    void tampilkanBarang() {
+    if (jumlah_barang == 0) {
+        printf("Belum ada barang dalam inventaris.\n");
+        return;
+    }
+
+    printf("\n%-5s %-25s %-15s %-10s %-15s %-25s\n", "ID", "Nama Barang", "Kategori", "Jumlah", "Harga (Rp)", "Promo");
+    printf("--------------------------------------------------------------------------------------------------\n");
+    
+    for (int i = 0; i < jumlah_barang; i++) {
+        char string_promo[100];
+        if (inventaris[i].tipe_promo == 1) {
+            snprintf(string_promo, sizeof(string_promo), "Diskon %.1f%%", inventaris[i].promo.diskon_persen);
+        } else if (inventaris[i].tipe_promo == 2) {
+            snprintf(string_promo, sizeof(string_promo), "Bonus: %s", inventaris[i].promo.bonus_item);
+        } else {
+            strcpy(string_promo, "-");
+        }
+
+        printf("%-5d %-25s %-15s %-10d %-15.2f %-25s\n",
+               inventaris[i].id,
+               inventaris[i].nama,
+               getNamaKategori(inventaris[i].kategori),
+               inventaris[i].jumlah,
+               inventaris[i].harga,
+               string_promo);
+    }
+
 }
 
 
