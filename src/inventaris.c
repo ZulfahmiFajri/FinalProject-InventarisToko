@@ -3,6 +3,9 @@
 #include <string.h>
 #include "inventaris.h"
 
+int compareByName(const void *a, const void *b);
+int compareByPrice(const void *a, const void *b);
+
 struct Barang *inventaris = NULL;
 int jumlah_barang = 0;
 int kapasitas_inventaris = 0;
