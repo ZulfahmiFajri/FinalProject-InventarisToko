@@ -16,6 +16,12 @@ struct Barang {
     float harga;
 };
 
+typedef union {
+    float diskon_persen;
+    char bonus_item[50];
+} InfoPromo;
+
+
 extern struct Barang inventaris[MAX];
 extern int jumlah_barang;
 
