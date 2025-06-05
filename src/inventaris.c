@@ -123,34 +123,7 @@ void tambahBarang() {
     printf("Barang berhasil ditambahkan!\n");
 }
 
-void tampilkanBarang(){
-    if(jumlah_barang == 0){
-        printf("Belum ada barang dalam inventaris.\n");
-        return;
-    }
-    printf("\nDaftar Barang:\n");
-    printf("ID\tNama\t\tJumlah\t\tHarga\n");
-    for(int i = 0; i < jumlah_barang; i++){
-        printf("%-2d\t%-15s %-15d %-15.2f\n", inventaris[i].id, inventaris[i].nama, inventaris[i].jumlah, inventaris[i].harga);
-    }
-}
-
-void urutkanBarang() {
-    if (jumlah_barang < 2) {
-        printf("Butuh minimal 2 barang untuk diurutkan.\n");
-        return;
-    }
-    printf("Urutkan berdasarkan:\n1. Nama\n2. Harga\n");
-    int pilihan = inputValidInt("Pilihan: ", 1, 2);
-
-    if (pilihan == 1) {
-        qsort(inventaris, jumlah_barang, sizeof(struct Barang), compareByName);
-    } else {
-        qsort(inventaris, jumlah_barang, sizeof(struct Barang), compareByPrice);
-    }
-
-    printf("Inventaris berhasil diurutkan.\n");
-    void tampilkanBarang() {
+void tampilkanBarang() {
     if (jumlah_barang == 0) {
         printf("Belum ada barang dalam inventaris.\n");
         return;
@@ -178,6 +151,23 @@ void urutkanBarang() {
                string_promo);
     }
 
+
+void urutkanBarang() {
+    if (jumlah_barang < 2) {
+        printf("Butuh minimal 2 barang untuk diurutkan.\n");
+        return;
+    }
+    printf("Urutkan berdasarkan:\n1. Nama\n2. Harga\n");
+    int pilihan = inputValidInt("Pilihan: ", 1, 2);
+
+    if (pilihan == 1) {
+        qsort(inventaris, jumlah_barang, sizeof(struct Barang), compareByName);
+    } else {
+        qsort(inventaris, jumlah_barang, sizeof(struct Barang), compareByPrice);
+    }
+
+    printf("Inventaris berhasil diurutkan.\n");
+    tampilkanBarang();
 }
 
 
