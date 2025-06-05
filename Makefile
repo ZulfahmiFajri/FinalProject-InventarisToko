@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -MMD
-SRC = menu.c inventaris.c
+CFLAGS = -Wall -MMD -Iinclude
+SRC = src/main.c src/inventaris.c
 OBJ = $(SRC:.c=.o)
 DEP = $(OBJ:.o=.d)
-OUT = menu
+OUT = main
 
 all: $(OUT)
 	$(MAKE) clean_obj
@@ -15,7 +15,7 @@ $(OUT): $(OBJ)
 -include $(DEP)
 
 clean_obj:
-	rm -f *.o *.d
+	rm -f src/*.o src/*.d
 
 clean:
 	rm -f *.o *.d $(OUT)
