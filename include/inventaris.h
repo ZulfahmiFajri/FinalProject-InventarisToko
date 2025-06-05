@@ -1,7 +1,6 @@
 #ifndef INVENTARIS_H
 #define INVENTARIS_H
 
-#define MAX 100
 typedef enum {
     ELEKTRONIK,
     MAKANAN_MINUMAN,
