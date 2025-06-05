@@ -103,6 +103,25 @@ void tampilkanBarang(){
     }
 }
 
+void urutkanBarang() {
+    if (jumlah_barang < 2) {
+        printf("Butuh minimal 2 barang untuk diurutkan.\n");
+        return;
+    }
+    printf("Urutkan berdasarkan:\n1. Nama\n2. Harga\n");
+    int pilihan = inputValidInt("Pilihan: ", 1, 2);
+
+    if (pilihan == 1) {
+        qsort(inventaris, jumlah_barang, sizeof(struct Barang), compareByName);
+    } else {
+        qsort(inventaris, jumlah_barang, sizeof(struct Barang), compareByPrice);
+    }
+
+    printf("Inventaris berhasil diurutkan.\n");
+    tampilkanBarang();
+}
+
+
 int compareByName(const void *a, const void *b) {
     struct Barang *barangA = (struct Barang *)a;
     struct Barang *barangB = (struct Barang *)b;
